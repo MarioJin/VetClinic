@@ -1,0 +1,41 @@
+﻿<Window x:Class="TarKuz.SignWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TarKuz"
+        mc:Ignorable="d"
+        Title="SignIn" Height="720" Width="1280" Background="#F3F2FF">
+
+    <Grid>
+        <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Image Source="logo.png"
+                   Width="281" Height="241"
+                   Margin="20"/>
+            <TextBlock Text= "Введите логин"
+                       Foreground="#C0C0EB"
+                       FontFamily="Roboto"
+                       FontSize="24"
+                       Margin="15"/>
+            <TextBox x:Name="txbLogin"
+                     FontSize="30"
+                     Margin="5"
+                     Style="{DynamicResource TextBoxCorner}"/>
+            <TextBlock Text="Введите пароль"
+                       Foreground="#C0C0EB"
+                       FontFamily="Roboto"
+                       FontSize="24"
+                       Margin="10"/>
+            <PasswordBox x:Name="psbPassword"
+                         FontSize="30"
+                         Style="{DynamicResource PasswordBox}"/>
+            <Button x:Name="btnSignIn" 
+                    Margin="40"
+                    Content="Войти"
+                    FontFamily="Roboto"
+                    FontSize="36" 
+                    Style="{DynamicResource ButtonSign}"
+                    Click="SignIn_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
