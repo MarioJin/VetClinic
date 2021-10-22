@@ -59,19 +59,25 @@
                       Style="{DynamicResource listViewGraphic}" SelectionChanged="lvInformation_SelectionChanged"/>
         </StackPanel>
 
-        <WrapPanel VerticalAlignment="Bottom" Margin="0,0,10,79" Height="33" HorizontalAlignment="Right" Width="1252">
+        <WrapPanel VerticalAlignment="Bottom" 
+                   Height="33"
+                   Width="1252"
+                   Margin="82 79"
+                   HorizontalAlignment="Center">
             <Button x:Name="btnExit"
                     Content="Выйти"
                     FontFamily="Roboto"
                     FontSize="28"   
                     Margin="82 0 0 0"
-                    Style="{DynamicResource ButtonOne}" Click="btnExit_Click"/>
+                    Style="{DynamicResource ButtonOne}"
+                    Click="btnExit_Click"/>
             <Button x:Name="btnGraphic"
                     Content="График работы"
                     FontFamily="Roboto"
                     FontSize="28"
                     Margin="831 0 0 0"
-                    Style="{DynamicResource ButtonOne}" Click="btnGraphic_Click"/>
+                    Style="{DynamicResource ButtonOne}"
+Click="btnGraphic_Click"/>
         </WrapPanel>
     </Grid>
 </Window>

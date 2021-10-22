@@ -15,18 +15,13 @@ using System.Windows.Shapes;
 namespace TarKuz.Windows
 {
     /// <summary>
-    /// Логика взаимодействия для MedicalCardMain.xaml
+    /// Логика взаимодействия для MedicalCardProfile.xaml
     /// </summary>
-    public partial class MedicalCardMain : Window
+    public partial class MedicalCardProfile : Window
     {
-        public MedicalCardMain()
+        public MedicalCardProfile()
         {
             InitializeComponent();
-        }
-
-        private void btnAdd_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)

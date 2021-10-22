@@ -16,41 +16,43 @@
         <StackPanel VerticalAlignment="Top"
                     HorizontalAlignment="Left"
                     Margin="226,75,0,0">
+
             <TextBlock Text="Медицинские карты"
                        FontFamily="Roboto"
                        FontSize="36"
                        Foreground="#7777A6"/>
-            
+
             <Rectangle Width="350"
                        Height="2"
                        Fill="#7777A6"
                        HorizontalAlignment="Left"/>
         </StackPanel>
-        
-        <StackPanel Margin="374,212,62.556,134.889">
-            <TextBlock Text="Расписание"
-                   FontFamily="Roboto"
-                   FontSize="28"
-                   Foreground="#7777A6"/>
-            <ListView x:Name="lvInformation"
-                      Width="832"
-                      Height="308"
-                      Style="{DynamicResource listViewGraphic}" SelectionChanged="lvInformation_SelectionChanged"/>
+
+        <StackPanel Margin="226,200,75.556,163.889">
+            
+            <ListView x:Name="lvMedicalCard"
+                      Height="329"
+                      Style="{DynamicResource listViewGraphic}"
+                      Margin="0,0,-0.222,0"/>
         </StackPanel>
 
-        <WrapPanel VerticalAlignment="Bottom" Margin="0,0,9.556,78.889" Height="33" HorizontalAlignment="Right" Width="1252">
-            <Button x:Name="btnLast"
+        <WrapPanel VerticalAlignment="Bottom"
+                   Height="33"
+                   Width="1252"
+                   Margin="82 79"
+                   HorizontalAlignment="Center">
+            <Button x:Name="btnBack"
                     Content="Назад"
                     FontFamily="Roboto"
                     FontSize="28"   
                     Margin="82 0 0 0"
-                    Style="{DynamicResource ButtonOne}"/>
+                    Style="{DynamicResource ButtonOne}" Click="btnBack_Click"/>
             <Button x:Name="btnAdd"
                     Content="Добавить"
                     FontFamily="Roboto"
                     FontSize="28"
                     Margin="831 0 0 0"
-                    Style="{DynamicResource ButtonOne}"/>
+                    Style="{DynamicResource ButtonOne}" Click="btnAdd_Click"/>
         </WrapPanel>
     </Grid>
 </Window>

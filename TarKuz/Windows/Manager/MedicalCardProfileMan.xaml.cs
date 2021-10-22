@@ -12,21 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace TarKuz.Windows
+namespace TarKuz.Windows.Manager
 {
     /// <summary>
-    /// Логика взаимодействия для MedicalCardMain.xaml
+    /// Логика взаимодействия для MedicalCardProfileMan.xaml
     /// </summary>
-    public partial class MedicalCardMain : Window
+    public partial class MedicalCardProfileMan : Window
     {
-        public MedicalCardMain()
+        public MedicalCardProfileMan()
         {
             InitializeComponent();
-        }
-
-        private void btnAdd_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)

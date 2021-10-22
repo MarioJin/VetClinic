@@ -84,7 +84,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\Manager\MedicalCardProfileMan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\MedicalCardMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\MedicalCardProfile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -179,8 +187,14 @@
     <Compile Include="Windows\Manager\MainManager.xaml.cs">
       <DependentUpon>MainManager.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Manager\MedicalCardProfileMan.xaml.cs">
+      <DependentUpon>MedicalCardProfileMan.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\MedicalCardMain.xaml.cs">
       <DependentUpon>MedicalCardMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\MedicalCardProfile.xaml.cs">
+      <DependentUpon>MedicalCardProfile.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\RecordMain.xaml.cs">
       <DependentUpon>RecordMain.xaml</DependentUpon>
@@ -274,6 +288,8 @@
       <DependentUpon>ModelBD.edmx</DependentUpon>
       <LastGenOutput>ModelBD.cs</LastGenOutput>
     </Content>
+    <Resource Include="Windows\LineMain.png" />
+    <Resource Include="Windows\LineSmall.png" />
     <Resource Include="Windows\logosmall.png" />
   </ItemGroup>
   <ItemGroup>

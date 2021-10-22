@@ -80,7 +80,11 @@
                       Style="{DynamicResource listViewGraphic}" SelectionChanged="lvInformation_SelectionChanged"/>
         </StackPanel>
 
-        <WrapPanel VerticalAlignment="Bottom" Margin="0,0,9.556,78.889" Height="33" HorizontalAlignment="Right" Width="1252">
+        <WrapPanel VerticalAlignment="Bottom"
+                   Height="33"
+                   Width="1252"
+                   Margin="82 79"
+                   HorizontalAlignment="Center">
             <Button x:Name="btnExit"
                     Content="Выйти"
                     FontFamily="Roboto"

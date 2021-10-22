@@ -5,8 +5,72 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TarKuz.Windows"
         mc:Ignorable="d"
-        Title="RecordMain" Height="450" Width="800">
+        Title="RecordMain" Height="720" Width="1280" Background="#F3F2FF">
     <Grid>
+        <Image Source="logosmall.png"
+               Width="138"
+               Height="118"
+               Margin="50,50,0,0"
+               VerticalAlignment="Top"
+               HorizontalAlignment="Left"/>
+        <StackPanel VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Margin="226,75,0,0">
+
+            <TextBlock Text="Записи"
+                       FontFamily="Roboto"
+                       FontSize="36"
+                       Foreground="#7777A6"/>
+
+            <Rectangle Width="140"
+                       Height="2"
+                       Fill="#7777A6"
+                       HorizontalAlignment="Left"/>
+        </StackPanel>
+
+        <StackPanel VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Margin="60,212,0,0" Height="346">
+            <Button x:Name="btnActive"
+                    Content="Активные"
+                    FontFamily="Roboto"
+                    FontSize="28"
+                    HorizontalAlignment="Left"
+                    Style="{DynamicResource ButtonOne}" Click="btnActive_Click"/>
+            <Button x:Name="btnArchive"
+                    Content="Архив"
+                    FontFamily="Roboto"
+                    FontSize="28"
+                    Style="{DynamicResource ButtonOne}"
+                    HorizontalAlignment="Left"
+                    Margin="0 41" Click="btnArchive_Click"/>
+            </StackPanel>
         
+        <StackPanel Margin="226,200,75.556,163.889">
+
+            <ListView x:Name="lvRecord"
+                      Height="329"
+                      Style="{DynamicResource listViewGraphic}"
+                      Margin="0,0,-0.222,0"/>
+        </StackPanel>
+
+        <WrapPanel VerticalAlignment="Bottom"
+                   Height="33"
+                   Width="1252"
+                   Margin="82 79"
+                   HorizontalAlignment="Center">
+            <Button x:Name="btnBack"
+                    Content="Назад"
+                    FontFamily="Roboto"
+                    FontSize="28"   
+                    Margin="82 0 0 0"
+                    Style="{DynamicResource ButtonOne}" Click="btnBack_Click"/>
+            <Button x:Name="btnAdd"
+                    Content="Добавить"
+                    FontFamily="Roboto"
+                    FontSize="28"
+                    Margin="831 0 0 0"
+                    Style="{DynamicResource ButtonOne}" Click="btnAdd_Click"/>
+        </WrapPanel>
     </Grid>
 </Window>

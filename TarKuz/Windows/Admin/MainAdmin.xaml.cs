@@ -50,9 +50,6 @@ namespace TarKuz.Windows.Admin
 
         }
 
-        private void lvInformation_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+       
     }
 }

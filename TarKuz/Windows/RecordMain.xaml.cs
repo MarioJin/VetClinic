@@ -23,5 +23,25 @@ namespace TarKuz.Windows
         {
             InitializeComponent();
         }
+
+        private void btnActive_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnArchive_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
