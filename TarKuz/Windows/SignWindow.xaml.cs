@@ -30,7 +30,7 @@ namespace TarKuz
 
         private void SignIn_Click(object sender, RoutedEventArgs e)
         {
-           var user = EF.EntEF.Context.User.Where(i => i.Login == txbLogin.Text && i.Password == psbPassword.Password).FirstOrDefault();
+            var user = EF.EntEF.Context.User.Where(i => i.Login == txbLogin.Text && i.Password == psbPassword.Password).FirstOrDefault();
 
             switch (user.IdRole)
             {
@@ -52,8 +52,6 @@ namespace TarKuz
                     Application.Current.MainWindow.Close();
                     break;
 
-                default:
-                    break;
             }
         }
     }

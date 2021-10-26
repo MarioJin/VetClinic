@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TarKuz.Windows.Admin"
         mc:Ignorable="d"
-        Title="MainAdmin"  Height="720" Width="1280" Background="#F3F2FF">
+        Title="MainAdmin" MinHeight="720" MinWidth="600" Height="720" Width="1280" WindowState="Normal" Background="#F3F2FF">
 
     <Grid>
         <Image Source="logosmall.png"
@@ -55,14 +55,14 @@
                    Foreground="#7777A6"/>
             <ListView x:Name="lvInformation"
                       Width="832"
-                      Height="308"
-                      Style="{DynamicResource listViewGraphic}" SelectionChanged="lvInformation_SelectionChanged"/>
+                      Height="319"
+                      Style="{DynamicResource listViewGraphic}" Margin="3,0,3.667,0" SelectionChanged="lvInformation_SelectionChanged"/>
         </StackPanel>
 
         <WrapPanel VerticalAlignment="Bottom" 
                    Height="33"
-                   Width="1252"
-                   Margin="82 79"
+                   Width="1163"
+                   Margin="50,0,62.556,78.889"
                    HorizontalAlignment="Center">
             <Button x:Name="btnExit"
                     Content="Выйти"

@@ -28,5 +28,10 @@ namespace TarKuz.Windows.Manager
         {
 
         }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
