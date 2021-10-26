@@ -5,7 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TarKuz.Windows"
         mc:Ignorable="d"
-        Title="MedicalCardProfile" MinHeight="720" MinWidth="600" Height="720" Width="1280" WindowState="Normal" MaxHeight="800" MaxWidth="1400" Background="#F3F2FF">
+        Title="MedicalCardProfile"
+        MinHeight="720" MinWidth="600"
+        Height="720" Width="1280"
+        WindowState="Normal"
+        MaxHeight="800" MaxWidth="1400"
+        Background="#F3F2FF">
     <Grid>
         <Image Source="logosmall.png"
                Width="138"
@@ -34,7 +39,8 @@
         </StackPanel>
         <WrapPanel VerticalAlignment="Top"
                     HorizontalAlignment="Left"
-                    Margin="60,212,0,0" Height="54" Width="1098">
+                    Margin="60 210 0 0"
+                   Height="54" Width="1098">
             <TextBlock  Text="Сведения о пациенте:"
                         FontFamily="Roboto"
                         FontSize="28"
@@ -46,21 +52,23 @@
                        HorizontalAlignment="Left"
                        Margin="15 25 0 10"/>
         </WrapPanel>
-        <StackPanel Margin="45,266,623.556,134.889">
+        <StackPanel Margin="45 265 630 135">
             <TextBlock Text="Диагнозы:"
                    FontFamily="Roboto"
                    FontSize="28"
-                   Foreground="#7777A6" Margin="10,0,427,0"/>
+                   Foreground="#7777A6"
+                   Margin="10 0 425 0"/>
             <ListView x:Name="lvDiagnosis"
-                      Height="254"               
-                      Style="{DynamicResource listViewGraphic}" Margin="10,0,10.111,0"/>
+                      Height="254"
+                      Margin="10 0 10 0"
+                      Style="{DynamicResource listViewGraphic}"/>
         </StackPanel>
 
-        <StackPanel Margin="652,266,49.556,134.889">
+        <StackPanel Margin="650 265 50 135">
             <TextBlock Text="Записи:"
                    FontFamily="Roboto"
                    FontSize="28"
-                   Foreground="#7777A6" Margin="10,0,427,0"/>
+                   Foreground="#7777A6" Margin="10 0 425 0"/>
             <ListView x:Name="lvRecord"
                        Width="554"
                       Height="254"
@@ -77,7 +85,8 @@
                     Content="Назад"
                     FontFamily="Roboto"
                     FontSize="28"   
-                    Style="{DynamicResource ButtonOne}" Click="btnBack_Click"/>
+                    Style="{DynamicResource ButtonOne}"
+                    Click="btnBack_Click"/>
         </WrapPanel>
     </Grid>
 </Window>

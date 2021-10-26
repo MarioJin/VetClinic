@@ -5,18 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TarKuz.Windows.Manager"
         mc:Ignorable="d"
-        Title="MainManager" MinHeight="720" MinWidth="600" Height="720" Width="1280" WindowState="Normal" MaxHeight="800" MaxWidth="1400" Background="#F3F2FF">
+        Title="MainManager"
+        MinHeight="720" MinWidth="600"
+        Height="720" Width="1280"
+        WindowState="Normal"
+        MaxHeight="800" MaxWidth="1400"
+        Background="#F3F2FF">
 
     <Grid>
         <Image Source="logosmall.png"
                Width="138"
                Height="118"
-               Margin="50,50,0,0"
+               Margin="50 50 0 0"
                VerticalAlignment="Top"
                HorizontalAlignment="Left"/>
         <StackPanel VerticalAlignment="Top"
                     HorizontalAlignment="Left"
-                    Margin="226,75,0,0">
+                    Margin="225 75 0 0">
             <TextBlock Text="Главный врач"
                        FontFamily="Roboto"
                        FontSize="36"
@@ -34,20 +39,23 @@
         </StackPanel>
         <StackPanel VerticalAlignment="Top"
                     HorizontalAlignment="Left"
-                    Margin="60,212,0,0" Height="346">
+                    Margin="60 210 0 0"
+                    Height="346">
             <Button x:Name="btnRecord"
                     Content="Записи"
                     FontFamily="Roboto"
                     FontSize="28"
                     HorizontalAlignment="Left"
-                    Style="{DynamicResource ButtonOne}" Click="btnRecord_Click"/>
+                    Style="{DynamicResource ButtonOne}"
+                    Click="btnRecord_Click"/>
             <Button x:Name="btnMedicalCard"
                     Content="Медицинские карты"
                     FontFamily="Roboto"
                     FontSize="28"
-                    Style="{DynamicResource ButtonOne}"
                     HorizontalAlignment="Left"
-                    Margin="0 41" Click="btnMedicalCard_Click"/>
+                    Margin="0 40"
+                    Style="{DynamicResource ButtonOne}"
+                    Click="btnMedicalCard_Click"/>
             <Image Source="LineSmall.png"
                    Width="160"
                    Height="2"
@@ -57,19 +65,20 @@
                     Content="Сотрудники"
                     FontFamily="Roboto"
                     FontSize="28"
-                    Style="{DynamicResource ButtonOne}"
                     HorizontalAlignment="Left"
-                    Margin="0 10" Click="btnEmployee_Click"/>
+                    Margin="0 10"
+                    Style="{DynamicResource ButtonOne}"
+                    Click="btnEmployee_Click"/>
             <Button x:Name="btnGraphicEdit"
                     Content="Графики"
                     FontFamily="Roboto"
                     FontSize="28"
-                    Style="{DynamicResource ButtonOne}"
                     HorizontalAlignment="Left"
-                    Margin="0 15" Click="btnGraphicEdit_Click"/>
-
+                    Margin="0 15"
+                    Style="{DynamicResource ButtonOne}"
+                    Click="btnGraphicEdit_Click"/>
         </StackPanel>
-        <StackPanel Margin="374,212,62.556,134.889">
+        <StackPanel Margin="375 210 65 135">
             <TextBlock Text="Расписание"
                    FontFamily="Roboto"
                    FontSize="28"
@@ -82,21 +91,23 @@
 
         <WrapPanel VerticalAlignment="Bottom"
                    Height="33"
-                   Width="1252"
-                   Margin="82 79"
+                   Width="1224"
+                   Margin="10 0 40 80"
                    HorizontalAlignment="Center">
             <Button x:Name="btnExit"
                     Content="Выйти"
                     FontFamily="Roboto"
                     FontSize="28"   
                     Margin="82 0 0 0"
-                    Style="{DynamicResource ButtonOne}" Click="btnExit_Click"/>
+                    Style="{DynamicResource ButtonOne}"
+                    Click="btnExit_Click"/>
             <Button x:Name="btnGraphic"
                     Content="График работы"
                     FontFamily="Roboto"
                     FontSize="28"
-                    Margin="831 0 0 0"
-                    Style="{DynamicResource ButtonOne}" Click="btnGraphic_Click"/>
+                    Margin="830 0 0 0"
+                    Style="{DynamicResource ButtonOne}"
+                    Click="btnGraphic_Click"/>
         </WrapPanel>
     </Grid>
 </Window>

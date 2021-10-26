@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TarKuz"
         mc:Ignorable="d"
-        Title="SignIn" MinHeight="720" MinWidth="600" Height="720" Width="1280" WindowState="Normal" MaxHeight="800" MaxWidth="1400" 
-        Background="#F3F2FF" >
+        Title="SignIn"
+        MinHeight="720" MinWidth="600"
+        Height="720" Width="1280"
+        MaxHeight="800" MaxWidth="1400"
+        WindowState="Normal"  
+        Background="#F3F2FF">
 
     <Grid>
         <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center">
