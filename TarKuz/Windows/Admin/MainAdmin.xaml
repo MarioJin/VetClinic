@@ -5,9 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TarKuz.Windows.Admin"
         mc:Ignorable="d"
-        Title="MainAdmin" MinHeight="720" MinWidth="600" Height="720" Width="1280" WindowState="Normal" Background="#F3F2FF">
+        Title="MainAdmin" MinHeight="720" MinWidth="600" Height="720" Width="1280" WindowState="Normal" MaxHeight="800" MaxWidth="1400"
+        Background="#F3F2FF">
 
     <Grid>
+
         <Image Source="logosmall.png"
                Width="138"
                Height="118"
@@ -48,7 +50,7 @@
                     Style="{DynamicResource ButtonOne}"
                     Margin="0 41" Click="btnMedicalCard_Click"/>
         </StackPanel>
-        <StackPanel Margin="374,212,63,135">
+        <StackPanel Margin="374,212,49.556,116.889">
             <TextBlock Text="Расписание"
                    FontFamily="Roboto"
                    FontSize="28"
@@ -56,7 +58,7 @@
             <ListView x:Name="lvInformation"
                       Width="832"
                       Height="319"
-                      Style="{DynamicResource listViewGraphic}" Margin="3,0,3.667,0" SelectionChanged="lvInformation_SelectionChanged"/>
+                      Style="{DynamicResource listViewGraphic}" Margin="3,0,3.667,0" />
         </StackPanel>
 
         <WrapPanel VerticalAlignment="Bottom" 

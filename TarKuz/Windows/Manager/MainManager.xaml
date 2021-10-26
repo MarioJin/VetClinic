@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TarKuz.Windows.Manager"
         mc:Ignorable="d"
-        Title="MainManager" Height="720" Width="1280" Background="#F3F2FF">
+        Title="MainManager" MinHeight="720" MinWidth="600" Height="720" Width="1280" WindowState="Normal" MaxHeight="800" MaxWidth="1400" Background="#F3F2FF">
 
     <Grid>
         <Image Source="logosmall.png"
