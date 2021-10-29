@@ -22,25 +22,35 @@ namespace TarKuz.Windows.Doctor
         public MainDoctor()
         {
             InitializeComponent();
+            var user = EF.EntEF.Context.User.Where(i => i.IdUser == ClassUserId.ClassUserId.Instance.idUserInt).FirstOrDefault();
+            string f = user.LastName;
+            string l = user.FirstName;
+            string o = user.Patronymic;
+            string fio = f + " " + l + " " + o;
+            txbDoctorFIO.Text = fio;
+            txbSpecialization.Text = user.Specialization.NameSpecialization;
+            frGraphic.Navigate(new GraphicPage());
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
             SignWindow signWindow = new SignWindow();
+            this.Close();
             signWindow.Show();
-            Application.Current.MainWindow.Close();
         }
 
         private void btnRecord_Click(object sender, RoutedEventArgs e)
         {
             RecordMain recordMain = new RecordMain();
+            this.Close();
             recordMain.Show();
-            Application.Current.MainWindow.Close();
         }
 
         private void btnGraphic_Click(object sender, RoutedEventArgs e)
         {
-
+            Graphic graphicMain = new Graphic();
+            this.Close();
+            graphicMain.Show();
         }
     }
 }

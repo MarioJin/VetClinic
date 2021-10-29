@@ -6,43 +6,53 @@
         xmlns:local="clr-namespace:TarKuz.Windows"
         mc:Ignorable="d"
         Title="RecordMain"
-        MinHeight="720" MinWidth="600"
-        MaxHeight="800" MaxWidth="1400"
+        MinHeight="720" MinWidth="1200"
         Height="720" Width="1280"
         WindowState="Normal"
         Background="#F3F2FF">
     <Grid>
-        <Image Source="logosmall.png"
+        <Grid.RowDefinitions>
+            <RowDefinition Height="175*" />
+            <RowDefinition Height="450*" />
+            <RowDefinition Height="60*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="215*" />
+            <ColumnDefinition Width="1010*" />
+            <ColumnDefinition Width="45*" />
+        </Grid.ColumnDefinitions>
+        <Image Grid.Row="0" Grid.Column="0" Source="logosmall.png"
                Width="138"
                Height="118"
-               Margin="50,50,0,0"
-               VerticalAlignment="Top"
-               HorizontalAlignment="Left"/>
-        <StackPanel VerticalAlignment="Top"
+               VerticalAlignment="Stretch"
+               HorizontalAlignment="Right" />
+        <StackPanel VerticalAlignment="Stretch"
                     HorizontalAlignment="Left"
-                    Margin="225 75 0 0">
+                    Grid.Column="1" Grid.Row="0"
+                    Height="45" Width="140">
 
             <TextBlock Text="Записи"
                        FontFamily="Roboto"
                        FontSize="36"
-                       Foreground="#7777A6"/>
+                       Foreground="#7777A6" />
 
             <Rectangle Width="140"
                        Height="2"
                        Fill="#7777A6"
-                       HorizontalAlignment="Left"/>
+                       HorizontalAlignment="Left" />
         </StackPanel>
 
         <StackPanel VerticalAlignment="Top"
-                    HorizontalAlignment="Left"
-                    Margin="60 210 0 0" Height="346">
+                    HorizontalAlignment="Stretch"
+                    Height="345" Width="130"
+                    Grid.Row="1" Grid.Column="0">
             <Button x:Name="btnActive"
                     Content="Активные"
                     FontFamily="Roboto"
                     FontSize="28"
                     HorizontalAlignment="Left"
                     Style="{DynamicResource ButtonOne}"
-                    Click="btnActive_Click"/>
+                    Click="btnActive_Click" />
             <Button x:Name="btnArchive"
                     Content="Архив"
                     FontFamily="Roboto"
@@ -50,34 +60,33 @@
                     Style="{DynamicResource ButtonOne}"
                     HorizontalAlignment="Left"
                     Margin="0 41"
-                    Click="btnArchive_Click"/>
-            </StackPanel>
+                    Click="btnArchive_Click" />
+        </StackPanel>
 
-        <StackPanel Margin="225 200 75 155">
+        <StackPanel  Grid.Column="1" Grid.Row="1">
             <ListView x:Name="lvRecord"
-                      Height="329"
-                      Style="{DynamicResource listViewGraphic}"/>
+                      Height="330"
+                      Style="{DynamicResource listViewGraphic}" />
         </StackPanel>
 
         <WrapPanel VerticalAlignment="Bottom"
-                   Height="33"
-                   Width="1252"
-                   Margin="82 80"
-                   HorizontalAlignment="Center">
+                   Height="35"
+                   Width="1250"
+                   HorizontalAlignment="Center" Grid.Row="1" Grid.ColumnSpan="3">
             <Button x:Name="btnBack"
                     Content="Назад"
                     FontFamily="Roboto"
-                    FontSize="28"   
+                    FontSize="28"
                     Margin="82 0 0 0"
                     Style="{DynamicResource ButtonOne}"
-                    Click="btnBack_Click"/>
+                    Click="btnBack_Click" />
             <Button x:Name="btnAdd"
                     Content="Добавить"
                     FontFamily="Roboto"
                     FontSize="28"
                     Margin="830 0 0 0"
                     Style="{DynamicResource ButtonOne}"
-                    Click="btnAdd_Click"/>
+                    Click="btnAdd_Click" />
         </WrapPanel>
     </Grid>
 </Window>

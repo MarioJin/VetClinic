@@ -41,5 +41,6 @@ namespace TarKuz.EF
         public virtual DbSet<Specialization> Specialization { get; set; }
         public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<GraphicView> GraphicView { get; set; }
     }
 }

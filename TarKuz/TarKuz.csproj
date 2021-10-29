@@ -72,6 +72,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\Graphic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\GraphicPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -108,6 +112,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ClassUserId\ClassUserId.cs" />
     <Compile Include="EF\Breed.cs">
       <DependentUpon>ModelBD.tt</DependentUpon>
     </Compile>
@@ -128,6 +133,9 @@
       <DependentUpon>ModelBD.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Graphic.cs">
+      <DependentUpon>ModelBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\GraphicView.cs">
       <DependentUpon>ModelBD.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\MedicalCard.cs">
@@ -177,6 +185,9 @@
     </Compile>
     <Compile Include="Windows\Doctor\MainDoctor.xaml.cs">
       <DependentUpon>MainDoctor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Graphic.xaml.cs">
+      <DependentUpon>Graphic.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\GraphicPage.xaml.cs">
       <DependentUpon>GraphicPage.xaml</DependentUpon>
@@ -238,9 +249,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ClassHelper\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Resource\logo.png" />
   </ItemGroup>

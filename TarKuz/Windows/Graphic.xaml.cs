@@ -10,25 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static TarKuz.EF.EntEF;
 
 namespace TarKuz.Windows
 {
     /// <summary>
-    /// Логика взаимодействия для GraphicPage.xaml
+    /// Логика взаимодействия для Graphic.xaml
     /// </summary>
-    public partial class GraphicPage : Page
+    public partial class Graphic : Window
     {
-        public GraphicPage()
+        public Graphic()
         {
             InitializeComponent();
-            LvGraphic.ItemsSource = Context.GraphicView.ToList();
-        }
-
-        private void LvProduct_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
         }
     }
 }

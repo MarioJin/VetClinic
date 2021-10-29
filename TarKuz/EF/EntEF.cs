@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TarKuz.EF
 {
-    class EntEF
+    internal class EntEF
     {
         public static Entities Context { get; } = new Entities();
     }

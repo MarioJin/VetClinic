@@ -1,9 +1,10 @@
-﻿<Window x:Class="TarKuz.Windows.Admin.MainAdmin"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TarKuz.Windows.Admin"
+        xmlns:EF="clr-namespace:TarKuz.EF" x:Class="TarKuz.Windows.Admin.MainAdmin"
         mc:Ignorable="d"
         Title="MainAdmin"
         MinHeight="720" MinWidth="600"
@@ -13,79 +14,89 @@
         Background="#F3F2FF">
 
     <Grid>
-        <Image Source="logosmall.png"
+        <Grid.RowDefinitions>
+            <RowDefinition Height="175*" />
+            <RowDefinition Height="450*" />
+            <RowDefinition Height="60*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="215*" />
+            <ColumnDefinition Width="1010*" />
+            <ColumnDefinition Width="45*" />
+        </Grid.ColumnDefinitions>
+        <Image Grid.Row="0" Grid.Column="0" Source="logosmall.png"
                Width="138"
                Height="118"
-               Margin="50 50"
-               VerticalAlignment="Top"
-               HorizontalAlignment="Left"/>
-        <StackPanel VerticalAlignment="Top"
-                    HorizontalAlignment="Left"
-                    Margin="225 75">
-            <TextBlock Text="Администратор"
+                VerticalAlignment="Stretch"
+               HorizontalAlignment="Right" />
+        <StackPanel HorizontalAlignment="Left"
+                   Grid.Column="1" Grid.Row="0"
+                    Width="540"  Height="118"
+                    VerticalAlignment="Bottom">
+            <TextBlock x:Name="txbSpecialization"
+
                        FontFamily="Roboto"
                        FontSize="36"
-                       Foreground="#7777A6"/>
+                       Foreground="#7777A6" />
             <TextBlock x:Name="txbAdminFIO"
-                       Text="AdminFIO"
                        FontFamily="Roboto"
                        FontSize="24"
                        Foreground="#7777A6"
-                       Margin="0 10"/>
+                       Margin="0 10">
+                <TextBlock.DataContext>
+                    <EF:User />
+                </TextBlock.DataContext>
+            </TextBlock>
             <Rectangle Width="320"
                        Height="2"
                        Fill="#7777A6"
-                       HorizontalAlignment="Left"/>
+                       HorizontalAlignment="Left" />
         </StackPanel>
         <StackPanel VerticalAlignment="Top"
-                    HorizontalAlignment="Left"
-                    Margin="60 210">
+                    Height="346"
+                    Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="270">
             <Button x:Name="btnRecord"
                     Content="Записи"
                     FontFamily="Roboto"
                     FontSize="28"
                     HorizontalAlignment="Left"
                     Style="{DynamicResource ButtonOne}"
-                    Click="btnRecord_Click"/>
+                    Click="btnRecord_Click" />
             <Button x:Name="btnMedicalCard"
                     Content="Медицинские карты"
                     FontFamily="Roboto"
                     FontSize="28"
                     Style="{DynamicResource ButtonOne}"
                     Margin="0 40"
-                    Click="btnMedicalCard_Click"/>
+                    Click="btnMedicalCard_Click" />
         </StackPanel>
-        <StackPanel Margin="375 210 50 115">
+        <StackPanel Grid.Column="1" Grid.Row="1">
             <TextBlock Text="Расписание"
                    FontFamily="Roboto"
                    FontSize="28"
-                   Foreground="#7777A6"/>
-            <ListView x:Name="lvInformation"
-                      Width="832"
-                      Height="319"
-                      Style="{DynamicResource listViewGraphic}"
-                      Margin="5 0 5 0" />
+                   Foreground="#7777A6" Margin="90,0,0,0" />
+            <Frame x:Name="frGraphic"  Width="832"
+                      Height="308" BorderBrush="#7777A6" BorderThickness="2" NavigationUIVisibility="Hidden" />
         </StackPanel>
 
-        <WrapPanel VerticalAlignment="Bottom" 
-                   Height="33"
-                   Width="1252"
-                   Margin="10 0 10 80"
-                   HorizontalAlignment="Center">
+        <WrapPanel VerticalAlignment="Bottom"
+                   Height="35"
+                   Width="1250"
+                   HorizontalAlignment="Center" Grid.Row="1" Grid.ColumnSpan="3">
             <Button x:Name="btnExit"
                     Content="Выйти"
                     FontFamily="Roboto"
-                    FontSize="28"   
+                    FontSize="28"
                     Margin="82 0 0 0"
                     Style="{DynamicResource ButtonOne}"
-                    Click="btnExit_Click"/>
+                    Click="btnExit_Click" />
             <Button x:Name="btnGraphic"
                     Content="График работы"
                     FontFamily="Roboto"
                     FontSize="28"
                     Margin="830 0 0 0"
                     Style="{DynamicResource ButtonOne}"
-                    Click="btnGraphic_Click"/>
+                    Click="btnGraphic_Click" />
         </WrapPanel>
     </Grid>
 </Window>

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище TarKuzMedCenterModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище TarKuzMedCenterModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Breed">
           <Key>
             <PropertyRef Name="IdBreed" />
@@ -104,6 +104,7 @@
           <Property Name="IdPet" Type="int" Nullable="false" />
           <Property Name="DateTime" Type="datetime" Nullable="false" />
           <Property Name="Appointment" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsArchive" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -152,6 +153,39 @@
           <Property Name="Email" Type="nvarchar" MaxLength="50" />
           <Property Name="Login" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdSpecialization" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "TarKuzMedCenter.dbo.GraphicView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="GraphicView">
+          <Key>
+            <PropertyRef Name="LastName" />
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="NameSpecialization" />
+            <PropertyRef Name="Number" />
+            <PropertyRef Name="DateStart" />
+            <PropertyRef Name="DateEnd" />
+            <PropertyRef Name="IdGraphic" />
+            <PropertyRef Name="IdCabinet" />
+            <PropertyRef Name="IdUser" />
+            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="IdRole" />
+            <PropertyRef Name="Expr2" />
+            <PropertyRef Name="IdSpecialization" />
+          </Key>
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
+          <Property Name="NameSpecialization" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Number" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="DateStart" Type="datetime" Nullable="false" />
+          <Property Name="DateEnd" Type="datetime" Nullable="false" />
+          <Property Name="IdGraphic" Type="int" Nullable="false" />
+          <Property Name="IdCabinet" Type="int" Nullable="false" />
+          <Property Name="IdUser" Type="int" Nullable="false" />
+          <Property Name="Expr1" Type="int" Nullable="false" />
+          <Property Name="IdRole" Type="int" Nullable="false" />
+          <Property Name="Expr2" Type="int" Nullable="false" />
           <Property Name="IdSpecialization" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_Cheque_Reception">
@@ -387,6 +421,24 @@
           <EntitySet Name="Specialization" EntityType="Self.Specialization" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GraphicView" EntityType="Self.GraphicView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [GraphicView].[LastName] AS [LastName], 
+    [GraphicView].[FirstName] AS [FirstName], 
+    [GraphicView].[Patronymic] AS [Patronymic], 
+    [GraphicView].[NameSpecialization] AS [NameSpecialization], 
+    [GraphicView].[Number] AS [Number], 
+    [GraphicView].[DateStart] AS [DateStart], 
+    [GraphicView].[DateEnd] AS [DateEnd], 
+    [GraphicView].[IdGraphic] AS [IdGraphic], 
+    [GraphicView].[IdCabinet] AS [IdCabinet], 
+    [GraphicView].[IdUser] AS [IdUser], 
+    [GraphicView].[Expr1] AS [Expr1], 
+    [GraphicView].[IdRole] AS [IdRole], 
+    [GraphicView].[Expr2] AS [Expr2], 
+    [GraphicView].[IdSpecialization] AS [IdSpecialization]
+    FROM [dbo].[GraphicView] AS [GraphicView]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_Cheque_Reception" Association="Self.FK_Cheque_Reception">
             <End Role="Reception" EntitySet="Reception" />
             <End Role="Cheque" EntitySet="Cheque" />
@@ -460,8 +512,7 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TarKuzMedCenterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -591,6 +642,7 @@
           <NavigationProperty Name="MedicalCard" Relationship="Self.FK_MedicalCard_Reception" FromRole="Reception" ToRole="MedicalCard" />
           <NavigationProperty Name="Pet" Relationship="Self.FK_Reception_Pet" FromRole="Reception" ToRole="Pet" />
           <NavigationProperty Name="User" Relationship="Self.FK_Reception_User" FromRole="Reception" ToRole="User" />
+          <Property Name="IsArchive" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -955,7 +1007,39 @@
             <End Role="Specialization" EntitySet="Specialization" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
+          <EntitySet Name="GraphicView" EntityType="TarKuzMedCenterModel.GraphicView" />
         </EntityContainer>
+        <EntityType Name="GraphicView">
+          <Key>
+            <PropertyRef Name="LastName" />
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="NameSpecialization" />
+            <PropertyRef Name="Number" />
+            <PropertyRef Name="DateStart" />
+            <PropertyRef Name="DateEnd" />
+            <PropertyRef Name="IdGraphic" />
+            <PropertyRef Name="IdCabinet" />
+            <PropertyRef Name="IdUser" />
+            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="IdRole" />
+            <PropertyRef Name="Expr2" />
+            <PropertyRef Name="IdSpecialization" />
+          </Key>
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NameSpecialization" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Number" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="DateStart" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateEnd" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdGraphic" Type="Int32" Nullable="false" />
+          <Property Name="IdCabinet" Type="Int32" Nullable="false" />
+          <Property Name="IdUser" Type="Int32" Nullable="false" />
+          <Property Name="Expr1" Type="Int32" Nullable="false" />
+          <Property Name="IdRole" Type="Int32" Nullable="false" />
+          <Property Name="Expr2" Type="Int32" Nullable="false" />
+          <Property Name="IdSpecialization" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1065,6 +1149,7 @@
           <EntitySetMapping Name="Reception">
             <EntityTypeMapping TypeName="TarKuzMedCenterModel.Reception">
               <MappingFragment StoreEntitySet="Reception">
+                <ScalarProperty Name="IsArchive" ColumnName="IsArchive" />
                 <ScalarProperty Name="IdReception" ColumnName="IdReception" />
                 <ScalarProperty Name="IdUser" ColumnName="IdUser" />
                 <ScalarProperty Name="IdPet" ColumnName="IdPet" />
@@ -1124,6 +1209,26 @@
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="IdSpecialization" ColumnName="IdSpecialization" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GraphicView">
+            <EntityTypeMapping TypeName="TarKuzMedCenterModel.GraphicView">
+              <MappingFragment StoreEntitySet="GraphicView">
+                <ScalarProperty Name="IdSpecialization" ColumnName="IdSpecialization" />
+                <ScalarProperty Name="Expr2" ColumnName="Expr2" />
+                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="IdCabinet" ColumnName="IdCabinet" />
+                <ScalarProperty Name="IdGraphic" ColumnName="IdGraphic" />
+                <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="NameSpecialization" ColumnName="NameSpecialization" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

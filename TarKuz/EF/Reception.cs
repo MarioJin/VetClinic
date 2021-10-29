@@ -26,6 +26,7 @@ namespace TarKuz.EF
         public int IdPet { get; set; }
         public System.DateTime DateTime { get; set; }
         public string Appointment { get; set; }
+        public bool IsArchive { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cheque> Cheque { get; set; }

@@ -22,49 +22,53 @@ namespace TarKuz.Windows.Manager
         public MainManager()
         {
             InitializeComponent();
+            var user = EF.EntEF.Context.User.Where(i => i.IdUser == ClassUserId.ClassUserId.Instance.idUserInt).FirstOrDefault();
+            string f = user.LastName;
+            string l = user.FirstName;
+            string o = user.Patronymic;
+            string fio = f + " " + l + " " + o;
+            txbManagerFIO.Text = fio;
+            txbSpecialization.Text = user.Specialization.NameSpecialization;
+            frGraphic.Navigate(new GraphicPage());
         }
 
         private void btnRecord_Click(object sender, RoutedEventArgs e)
         {
             RecordMain recordMain = new RecordMain();
+            this.Close();
             recordMain.Show();
-            Application.Current.MainWindow.Close();
         }
 
         private void btnMedicalCard_Click(object sender, RoutedEventArgs e)
         {
             MedicalCardMain medicalCardMain = new MedicalCardMain();
+            this.Close();
             medicalCardMain.Show();
-            Application.Current.MainWindow.Close();
         }
 
         private void btnEmployee_Click(object sender, RoutedEventArgs e)
         {
             EmployeeMain employeeMain = new EmployeeMain();
+            this.Close();
             employeeMain.Show();
-            Application.Current.MainWindow.Close();
         }
 
         private void btnGraphicEdit_Click(object sender, RoutedEventArgs e)
         {
-
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
             SignWindow signWindow = new SignWindow();
+            this.Close();
             signWindow.Show();
-            Application.Current.MainWindow.Close();
         }
 
         private void btnGraphic_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void lvInformation_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
+            Graphic graphicMain = new Graphic();
+            this.Close();
+            graphicMain.Show();
         }
     }
 }

@@ -31,28 +31,36 @@ namespace TarKuz
         private void SignIn_Click(object sender, RoutedEventArgs e)
         {
             var user = EF.EntEF.Context.User.Where(i => i.Login == txbLogin.Text && i.Password == psbPassword.Password).FirstOrDefault();
-
-            switch (user.IdRole)
+            if (user != null)
             {
-                case 1:
-                    MainManager mainManager = new MainManager();
-                    mainManager.Show();
-                    Application.Current.MainWindow.Close();
-                    break;
+                ClassUserId.ClassUserId.Instance.idUserInt = user.IdUser;
+                switch (user.IdRole)
+                {
+                    case 1:
+                        MainManager mainManager = new MainManager();
+                        mainManager.Show();
+                        Application.Current.MainWindow.Close();
+                        break;
 
-                case 2:
-                    MainAdmin mainAdmin = new MainAdmin();
-                    mainAdmin.Show();
-                    Application.Current.MainWindow.Close();
-                    break;
+                    case 2:
+                        MainAdmin mainAdmin = new MainAdmin();
+                        mainAdmin.Show();
+                        Application.Current.MainWindow.Close();
+                        break;
 
-                case 3:
-                    MainDoctor mainDoctor = new MainDoctor();
-                    mainDoctor.Show();
-                    Application.Current.MainWindow.Close();
-                    break;
+                    case 3:
+                        MainDoctor mainDoctor = new MainDoctor();
+                        mainDoctor.Show();
+                        Application.Current.MainWindow.Close();
+                        break;
 
+                    default:
+                        MessageBox.Show("Пароль не совпадает, повторите попытку", "Ошибка ввода пароля", MessageBoxButton.OK);
+                        break;
+                }
             }
+            else
+                MessageBox.Show("Пользователь не найден, повторите попытку", "Ошибка", MessageBoxButton.OK);
         }
     }
 }
